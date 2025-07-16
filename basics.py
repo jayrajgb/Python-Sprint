@@ -1,4 +1,11 @@
-### datatypes for numberic types:
+### Case Sensitivity
+# a case-sensitive language is one where uppercase 
+# and lowercase letters are treated as distinct characters.
+# Case-sensitive --- py, cpp, c, java, js (age, Age, AGE are different variables)
+# Case-insensitive --- html, sql, php
+
+
+### Datatypes for numeric types:
 ### int, float, complex
 
 # x = 1e3 # scientific float number
@@ -16,7 +23,7 @@
 #################################################################################
 
 
-### datatypes for text/letter types:
+### Datatypes for text/letter types:
 ### str (only)
 
 # x = 'b' # string of length 1
@@ -106,11 +113,17 @@
 
 
 ### Operators
-## Arithematic --> +  -  *  /  %  **  //
-## Comparison --> ==  !=  >  <  >=  <= 
-## Bitwise --> &  |  ~  ^  <<  >>
-## Assignment --> +=  -=  *=  /=  %=  //=  **=  &=  |=  ^=  >>=  <<=  :=
-## Logical --> and  or  not
-## Identity --> is  is not
-## Membership --> in  not in
 
+# Arithematic --> +  -  *  /  %  **  //
+
+# Comparison --> ==  !=  >  <  >=  <= 
+
+# Bitwise --> &  |  ~  ^  <<  >>
+
+# Assignment --> +=  -=  *=  /=  %=  //=  **=  &=  |=  ^=  >>=  <<=  :=
+
+# Logical --> and  or  not
+
+# Identity --> is  is not
+
+# Membership --> in  not in
