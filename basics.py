@@ -127,3 +127,168 @@
 # Identity --> is  is not
 
 # Membership --> in  not in
+
+
+#################################################################################
+#################################################################################
+
+
+### Conditional Statements
+
+## if, elif, else
+# a = 4
+# b = 5
+# if a > b:
+#   print("b is greater than a")
+# elif a == b:
+#   print("a and b are equal")
+# else:
+#   print("a is greater than b")
+
+# a = 4
+# b = 5
+# c = 6
+# if a > b and c > a:
+#   print("Both conditions are True")
+
+# a = 4
+# b = 5
+# c = 6
+# if a > b or c > a:
+#   print("Both conditions are True")
+
+# a = 4
+# b = 5
+# c = 6
+# if not a > b:
+#   print("Both conditions are True")
+
+## pass is used to avoid error
+# a = 33
+# b = 200
+# if b > a:
+#   pass
+
+## there is no switch, python uses match
+# num = 2
+# match num:
+#     case 1:
+#         print("One")
+#     case 2 | 3:
+#         print("Two or Three")
+#     case _: # wildcard/default statement
+#         print("Other number")
+
+
+#################################################################################
+#################################################################################
+
+
+### Loops
+
+## while loop
+# i = 1
+# while i < 5:
+#   print(i)
+#   i += 1
+
+## for loop
+# for x in range(6): # start is default 0.
+#   print(x)
+# for x in range(2, 30, 3): # start with 2, end on 30, increment with 3
+#   print(x)
+
+## for-else --- executes after for loop executes
+## The else block will NOT be executed if the loop is stopped by a break statement.
+# for x in range(6):
+#   print(x)
+# else:
+#   print("Finally finished!") 
+
+## for loop with no content, put in the pass statement to avoid getting an error.
+# for x in [0, 1, 2]:
+#   pass
+
+## With the break statement we can stop the loop even if the while condition is true
+
+## With the continue statement we can stop the current iteration, and continue with the next
+
+
+#################################################################################
+#################################################################################
+
+
+### Functions --- a block that only executes when called
+
+# def my_function():
+#   print("Hello from a function")
+# my_function()
+
+## The terms parameter and argument can be used for the same thing: information that are passed into a function.
+
+## A parameter is the variable listed inside the parentheses in the function definition.
+
+## An argument is the value that is sent to the function when it is called.
+
+## No. of arguments passed, should match no. of parameters, else error.
+
+## If no. of arguments is not known, use *args in parameters
+# def my_function(*kids):
+#   print("The youngest child is " + kids[2])
+#   print(type(kids)) # tuple
+# my_function("Emil", "Tobias", "Linus")
+
+## arbitrary arguments --- *args is a tuple
+
+## Keyword arguments
+# def my_function(child3, child2, child1):
+#   print("The youngest child is " + child3)
+# my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+
+# def my_function(**kid):
+#   print("His last name is " + kid["lname"])
+#   print(type(kid)) # dict
+# my_function(fname = "Tobias", lname = "Refsnes")
+
+## keyword arbitrary arguments --- **kwargs is a tuple
+
+## Default parameter
+# def my_function(country = "Norway"):
+#   print("I am from " + country)
+# my_function("Sweden")
+# my_function("India")
+# my_function()
+# my_function("Brazil")
+
+## Compare positional and keyword arguments?
+
+
+## Lambda Function
+
+# A lambda function is a small anonymous function.
+
+# A lambda function can take any number of arguments, but can only have one expression.
+
+# x = lambda a : a + 10
+# print(x(5))
+
+# x = lambda a, b : a * b
+# print(x(5, 6))
+
+# x = lambda a, b, c : a + b + c
+# print(x(5, 6, 2))
+
+## The power of lambda is better shown when you use them as an anonymous function inside another function.
+# def myfunc(n):
+#   return lambda a : a * n
+# mydoubler = myfunc(2)
+# print(mydoubler(11))
+
+# def myfunc(n):
+#   return lambda a : a * n
+
+# mydoubler = myfunc(2)
+# mytripler = myfunc(3)
+
+# print(mydoubler(11))
+# print(mytripler(11))
