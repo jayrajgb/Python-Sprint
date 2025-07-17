@@ -6,7 +6,7 @@
 ## Unchangeable, but you can remove items and add new items.
 ## Duplicates not allowed
 ## Elements can have different datatypes (but, True and 1 are same)
-## Set is a collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+## Set is a collection which is unordered, unchangeable, and unindexed. No duplicate members.
 
 # x = ("apple", "banana", "cherry")
 
