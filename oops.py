@@ -102,9 +102,280 @@
 #     super().__init__(fname, lname)
 
 
+### Types of Inheritance
+
+## Single Inheritance
+
+# # Base class
+# class Parent:
+#     def func1(self):
+#         print("This function is in parent class.")
+
+# # Derived class
+# class Child(Parent):
+#     def func2(self):
+#         print("This function is in child class.")
+
+# # Driver code
+# obj = Child()
+# obj.func1()
+# obj.func2()
+
+
+## Multilevel Inheritance
+
+# # Base class
+# class Grandfather:
+#     def __init__(self, grandfathername):
+#         self.grandfathername = grandfathername
+
+# # Intermediate class
+# class Father(Grandfather):
+#     def __init__(self, fathername, grandfathername):
+#         self.fathername = fathername
+#         # Call the constructor of Grandfather
+#         Grandfather.__init__(self, grandfathername)
+
+# # Derived class
+# class Son(Father):
+#     def __init__(self, sonname, fathername, grandfathername):
+#         self.sonname = sonname
+#         # Call the constructor of Father
+#         Father.__init__(self, fathername, grandfathername)
+
+#     def print_name(self):
+#         print('Grandfather name :', self.grandfathername)
+#         print('Father name :', self.fathername)
+#         print('Son name :', self.sonname)
+
+# # Driver code
+# s1 = Son('Prince', 'Rampal', 'Lal mani')
+# print(s1.grandfathername)
+# s1.print_name()
+
+
+## Hierarchical Inheritance
+
+# # Base class
+# class Parent:
+#     def func1(self):
+#         print("This function is in parent class.")
+
+# # Derived class 1
+# class Child1(Parent):
+#     def func2(self):
+#         print("This function is in child 1.")
+
+# # Derived class 2
+# class Child2(Parent):
+#     def func3(self):
+#         print("This function is in child 2.")
+
+# # Driver code
+# object1 = Child1()
+# object2 = Child2()
+
+# object1.func1()
+# object1.func2()
+# object2.func1()
+# object2.func3()
+
+
+## Multiple Inheritance
+
+# # Base class 1
+# class Mother:
+#     mothername = ""
+
+#     def mother(self):
+#         print(self.mothername)
+
+# # Base class 2
+# class Father:
+#     fathername = ""
+
+#     def father(self):
+#         print(self.fathername)
+
+# # Derived class
+# class Son(Mother, Father):
+#     def parents(self):
+#         print("Father :", self.fathername)
+#         print("Mother :", self.mothername)
+
+# # Driver code
+# s1 = Son()
+# s1.fathername = "RAM"
+# s1.mothername = "SITA"
+# s1.parents()
+
+
+## Diamond Problem 
+# to resolve the ambiguity, when inheriting, 
+# the class where that method is implemented first, will get executed.
+
+## Scenario 1: Where method is overridden in both classes.
+# class Class1:
+#     def m(self):
+#         print("In Class1") 
+      
+# class Class2(Class1):
+#     def m(self):
+#         print("In Class2")
+
+# class Class3(Class1):
+#     def m(self):
+#         print("In Class3")  
+       
+# class Class4(Class2, Class3):
+#     pass   
+    
+# obj = Class4()
+# obj.m() # In Class2 (if we inherited, Class3, Class2, then it would be In Class3)
+
+## Scenario 2: Where method is overridden in one of the classes.
+# class Class1:
+#     def m(self):
+#         print("In Class1") 
+      
+# class Class2(Class1):
+#     pass
+
+# class Class3(Class1):
+#     def m(self):
+#         print("In Class3")    
+     
+# class Class4(Class2, Class3):
+#     pass       
+
+# obj = Class4()
+# obj.m()
+
+
+## Scenario 3: Where method is defined in class itself.
+# class Class1:
+#     def m(self):
+#         print("In Class1") 
+      
+# class Class2(Class1):
+#     def m(self):
+#         print("In Class2")
+
+# class Class3(Class1):
+#     def m(self):
+#          print("In Class3")     
+    
+# class Class4(Class2, Class3):
+#     def m(self):
+#         print("In Class4")   
+
+# obj = Class4()
+# obj.m()
+
+
+## MRO (method resolution order)
+# class Class1:
+#     def m(self):
+#         print("In Class1")
+
+# class Class2(Class1):
+#     def m(self):
+#         print("In Class2")
+#         super().m()
+
+# class Class3(Class1):
+#     def m(self):
+#         print("In Class3")
+#         super().m()
+
+# class Class4(Class2, Class3):
+#     def m(self):
+#         print("In Class4")   
+#         super().m()
+     
+# print(Class4.mro())         # This will print list
+# print(Class4.__mro__)       # This will print tuple
+
+
 #############################################################################################
 #############################################################################################
 
 
 ### Polymorphism
 
+## Polymorphism in functions
+## Here, duck typing enables functions to work with any objects regardless of their types.
+# def add(a, b): # same fn can be used for doing all tasks
+#     return a + b
+# print(add(3, 4))           # Integer addition
+# print(add("Hello, ", "World!"))  # String concatenation
+# print(add([1, 2], [3, 4])) # List concatenation
+## This is also an example of operator overloading where '+' is behaving respectively.
+
+## Example of polymorphism in oops
+# class Shape:
+#     def area(self):
+#         return "Undefined"
+
+# class Rectangle(Shape):
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+
+#     def area(self):
+#         return self.length * self.width
+
+# class Circle(Shape):
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def area(self):
+#         return 3.14 * self.radius ** 2
+
+# shapes = [Rectangle(2, 3), Circle(5)]
+# for shape in shapes:
+#     print(f"Area: {shape.area()}")
+
+
+## Compile-time Polymorphism --- Overloading
+# def product(a, b):
+#     p = a * b
+#     print(p)
+
+# def product(a, b, c):
+#     p = a*b*c
+#     print(p)
+
+# product(4, 5) # Error - since latest version needs 3 parameters
+# product(4, 5, 5) # 100
+
+## Python does not support overloding, but there has methods to do so. 
+# Use *args. Use default arguments. Use dispatch.
+# def add(datatype, *args):
+#     if datatype == 'int':
+#         res = 0
+#     elif datatype == 'str':
+#         res = ''
+#     for item in args:
+#         res += item
+#     print(res)
+# add('int', 5, 6)
+# add('str', 'Hi ', 'Geeks')
+
+## Run-time Polymorphism --- Overriding
+# class Animal:
+#     def sound(self):
+#         return "Some generic sound"
+
+# class Dog(Animal):
+#     def sound(self):
+#         return "Bark"
+
+# class Cat(Animal):
+#     def sound(self):
+#         return "Meow"
+
+# # Polymorphic behavior
+# animals = [Dog(), Cat(), Animal()]
+# for animal in animals:
+#     print(animal.sound())  # Calls the overridden method based on the object type
