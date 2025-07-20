@@ -379,3 +379,6 @@
 # animals = [Dog(), Cat(), Animal()]
 # for animal in animals:
 #     print(animal.sound())  # Calls the overridden method based on the object type
+
+
+### Abstraction
