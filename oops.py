@@ -382,3 +382,82 @@
 
 
 ### Abstraction
+
+## Example
+# # Import required modules
+# from abc import ABC, abstractmethod
+
+# # Create Abstract base class
+# class Car(ABC):
+#     def __init__(self, brand, model, year):
+#         self.brand = brand
+#         self.model = model
+#         self.year = year
+    
+#     # Create abstract method      
+#     @abstractmethod
+#     def printDetails(self):   # abstract method
+#         pass
+  
+#     # Create concrete method
+#     def accelerate(self):     # concrete method
+#         print("Speed up ...")
+  
+#     def break_applied(self):
+#         print("Car stopped")
+
+# # Create a child class
+# class Hatchback(Car):
+#     def printDetails(self):
+#         print("Brand:", self.brand)
+#         print("Model:", self.model)
+#         print("Year:", self.year)
+  
+#     def sunroof(self):
+#         print("Not having this feature")
+
+# # Create a child class
+# class Suv(Car):
+#     def printDetails(self):
+#         print("Brand:", self.brand)
+#         print("Model:", self.model)
+#         print("Year:", self.year)
+  
+#     def sunroof(self):
+#         print("Available")
+
+# # Create an instance of the Hatchback class
+# car1 = Hatchback("Maruti", "Alto", "2022")
+
+# # Call methods
+# car1.printDetails()
+# car1.accelerate()
+# car1.sunroof()
+
+
+## Abstract Classes
+# from abc import ABC, abstractmethod
+# # Define an abstract class
+# class Animal(ABC):   
+#     @abstractmethod
+#     def sound(self):
+#         pass  # This is an abstract method, no implementation here.
+
+# # Concrete subclass of Animal
+# class Dog(Animal):
+#     def sound(self):
+#         return "Bark"  # Providing the implementation of the abstract method
+
+# # Create an instance of Dog
+# dog = Dog()
+# print(dog.sound())  # Output: Bark
+
+## TypeError is caused when we call a abstract class directly.
+# from abc import ABC, abstractmethod
+# class Animal(ABC):
+#     @abstractmethod
+#     def make_sound(self):
+#         pass
+# # Trying to instantiate the abstract class directly
+# # This will raise an error:
+# # animal = Animal()  # TypeError: Can't instantiate abstract class Animal with abstract methods make_sound
